@@ -2,135 +2,128 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>You're Invited!</title>
     <style>
-        /* Reset browser spacing defaults */
+        /* Reset spacing defaults */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
         }
 
-        /* Center the mobile invitation container on the screen */
+        /* Locks the screen and prevents any scrolling */
         body {
             background-color: #111111; 
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            align-items: flex-start; 
+            height: 100vh;
+            height: 100dvh; 
+            overflow: hidden; 
         }
 
-        /* The mobile frame container */
+        /* The viewport-locked 9:16 container */
         .invite-container {
-            position: relative; /* Allows absolute positioning for the form overlay */
-            width: 100%;
-            max-width: 450px; /* Constrains size on desktop screens */
-            background-color: #000000;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-            overflow: hidden;
+            position: relative;
+            height: 100%; 
+            max-height: 100dvh;
+            aspect-ratio: 9 / 16; 
+            background-color: #4a0000; 
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
         }
 
-        /* Forces your Photoshop image to scale responsively */
+        /* Makes the image fit the exact frame perfectly */
         .invite-container img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
 
-        /* The RSVP form box positioned at the absolute bottom of the image */
+        /* Fully transparent form wrapper pinned to the bottom */
         .rsvp-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 50px 30px 30px 30px;
-            /* Creates a dark gradient background behind the form fields for legibility */
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0) 100%);
+            padding: 20px 25px;
+            background: transparent; 
         }
 
-        /* Space below the text field */
         .input-group {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
-        /* Styling for the Name input text box */
+        /* Text box with a subtle tint so it remains readable over your design */
         input[type="text"] {
             width: 100%;
-            padding: 14px 16px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 8px;
-            background-color: rgba(20, 20, 20, 0.8);
+            background-color: rgba(0, 0, 0, 0.2); 
             color: #ffffff;
             font-size: 16px;
             outline: none;
             transition: border-color 0.2s;
         }
 
-        /* Changes border color when a user clicks into the text box */
         input[type="text"]:focus {
             border-color: #ffffff;
         }
 
-        /* Layout for the checkbox alignment */
+        input[type="text"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
         .checkbox-group {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
-        /* Size and color of the checkbox */
         input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
             accent-color: #ffffff; 
             cursor: pointer;
         }
 
-        /* Styling for the text next to the checkbox */
         .checkbox-group label {
             color: #ffffff;
-            font-size: 16px;
+            font-size: 15px;
             user-select: none;
             cursor: pointer;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8); 
         }
 
-        /* The RSVP Submit Button styling */
+        /* Custom styled button to complement a dark red background */
         button {
             width: 100%;
-            padding: 16px;
+            padding: 14px;
             background-color: #ffffff;
-            color: #000000;
+            color: #4a0000; 
             border: none;
             border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
+            transition: opacity 0.2s;
         }
 
-        /* Subtle shift when hovering over button */
         button:hover {
-            background-color: #e5e5e5;
-        }
-
-        button:active {
-            transform: scale(0.98);
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
 
     <div class="invite-container">
-        <!-- 1. Photoshop Design -->
         <img src="juju21.jpg" alt="Birthday Invitation">
 
-        <!-- 2. Form Overlay -->
         <div class="rsvp-overlay">
-            <!-- PASTE YOUR FORMSPREE LINK IN THE ACTION ATTRIBUTE BELOW -->
             <form action="https://formspree.io/f/xgojjpbk" method="POST">
                 
                 <div class="input-group">
@@ -138,7 +131,7 @@
                 </div>
 
                 <div class="checkbox-group">
-                    <input type="checkbox" id="going" name="Attending" value="Yes, I am going!" required>
+                    <input type="checkbox" id="going" name="Attending" value="Yes" required>
                     <label for="going">I am going!</label>
                 </div>
 
