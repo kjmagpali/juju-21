@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Invited!</title>
+    <style>
+        /* Reset browser spacing defaults */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Center the mobile invitation container on the screen */
+        body {
+            background-color: #111111; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* The mobile frame container */
+        .invite-container {
+            position: relative; /* Allows absolute positioning for the form overlay */
+            width: 100%;
+            max-width: 450px; /* Constrains size on desktop screens */
+            background-color: #000000;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+
+        /* Forces your Photoshop image to scale responsively */
+        .invite-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* The RSVP form box positioned at the absolute bottom of the image */
+        .rsvp-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 50px 30px 30px 30px;
+            /* Creates a dark gradient background behind the form fields for legibility */
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 40%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0) 100%);
+        }
+
+        /* Space below the text field */
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        /* Styling for the Name input text box */
+        input[type="text"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background-color: rgba(20, 20, 20, 0.8);
+            color: #ffffff;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        /* Changes border color when a user clicks into the text box */
+        input[type="text"]:focus {
+            border-color: #ffffff;
+        }
+
+        /* Layout for the checkbox alignment */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Size and color of the checkbox */
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            accent-color: #ffffff; 
+            cursor: pointer;
+        }
+
+        /* Styling for the text next to the checkbox */
+        .checkbox-group label {
+            color: #ffffff;
+            font-size: 16px;
+            user-select: none;
+            cursor: pointer;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+        }
+
+        /* The RSVP Submit Button styling */
+        button {
+            width: 100%;
+            padding: 16px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        /* Subtle shift when hovering over button */
+        button:hover {
+            background-color: #e5e5e5;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invite-container">
+        <!-- 1. Photoshop Design -->
+        <img src="juju21.jpg" alt="Birthday Invitation">
+
+        <!-- 2. Form Overlay -->
+        <div class="rsvp-overlay">
+            <!-- PASTE YOUR FORMSPREE LINK IN THE ACTION ATTRIBUTE BELOW -->
+            <form action="https://formspree.io/f/xgojjpbk" method="POST">
+                
+                <div class="input-group">
+                    <input type="text" id="guest-name" name="Guest Name" required placeholder="Your Full Name">
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="going" name="Attending" value="Yes, I am going!" required>
+                    <label for="going">I am going!</label>
+                </div>
+
+                <button type="submit">Send RSVP</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
