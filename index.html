@@ -48,21 +48,21 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 20px 25px;
+            padding: 25px;
             background: transparent; 
         }
 
         .input-group {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         /* Text box with a subtle tint so it remains readable over your design */
         input[type="text"] {
             width: 100%;
-            padding: 12px 15px;
+            padding: 14px 15px;
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 8px;
-            background-color: rgba(0, 0, 0, 0.2); 
+            background-color: rgba(0, 0, 0, 0.3); /* Slightly darker tint for better contrast */
             color: #ffffff;
             font-size: 16px;
             outline: none;
@@ -77,33 +77,10 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        /* Updated Checkbox styling with vibrant green color */
-        input[type="checkbox"] {
-            width: 22px; /* Made slightly larger so it's easier to tap on phones */
-            height: 22px;
-            margin-right: 12px;
-            accent-color: #2ecc71; /* Turns vibrant green when selected */
-            cursor: pointer;
-        }
-
-        .checkbox-group label {
-            color: #ffffff;
-            font-size: 16px;
-            user-select: none;
-            cursor: pointer;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8); 
-        }
-
         /* Custom styled button to complement a dark red background */
         button {
             width: 100%;
-            padding: 14px;
+            padding: 15px;
             background-color: #ffffff;
             color: #4a0000; 
             border: none;
@@ -128,12 +105,7 @@
             <form action="https://formspree.io/f/xgojjpbk" method="POST">
                 
                 <div class="input-group">
-                    <input type="text" id="guest-name" name="Guest Name" required placeholder="Your Full Name">
-                </div>
-
-                <div class="checkbox-group">
-                    <input type="checkbox" id="going" name="Attending" value="Yes" required>
-                    <label for="going">I am going!</label>
+                    <input type="text" id="guest-name" name="Guest Name" required placeholder="Enter name to RSVP...">
                 </div>
 
                 <button type="submit">Send RSVP</button>
